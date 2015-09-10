@@ -32,7 +32,7 @@ function ch(){
     var input = new Array();
     var output = new Array();
     for( var i = 0; i < input_n; i++ )
-	input[i] = normRand( 0.0 , 0.3 );
+	input[i] = normRand( 0.0 , 0.25 );
 
     for( var j = 0; j < output_n; j++ )
 	output[j] = 0.0;
