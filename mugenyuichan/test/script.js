@@ -76,13 +76,10 @@ function ch(){
     var cl = new Array();
     for( var i = 0; i < output_s * output_s; i++ )
 	cl[i] = Math.floor( Math.random() * K );
-
-    for( var i = 0; i < 10; i++ )
-	console.log( "%d" , cl[i] );
     
     var ave = new Array();
     var cnt = new Array();
-    for( var loop_cnt = 0; loop_cnt < 5; loop_cnt++ ){
+    for( var loop_cnt = 0; loop_cnt < 32; loop_cnt++ ){
 	for( var i = 0; i < K; i++ ){
 	    for( var j = 0; j < 3; j++ )
 		ave[i*3+j] = 0.0;
@@ -99,10 +96,6 @@ function ch(){
 	    for( var j = 0; j < 3; j++ )
 		if( cnt[i] > 0 ) ave[i*3+j] /= cnt[i];
 
-	for( var i = 0; i < K; i++ ){
-	    console.log( "%f, %f, %f %d" , ave[i*3] , ave[i*3+1] , ave[i*3+2] , cnt[i] );
-	}
-
 	for( var i = 0; i < output_s*output_s; i++ ){
 	    var minv = 3.0;
 	    cl[i] = 0;
@@ -110,7 +103,6 @@ function ch(){
 		var res = 0.0;
 		for( var k = 0; k < 3; k++ )
 		    res += ( output[i*3+k] - ave[j*3+k] ) * ( output[i*3+k] - ave[j*3+k] );
-		if( i == 0 ) console.log( res );
 		if( res < minv ){
 		    minv = res;
 		    cl[i] = j;
