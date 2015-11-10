@@ -10,7 +10,7 @@ var input_n = 128;
 var output_s = 96;
 var output_n = output_s * output_s *3;
 
-var K = 8;
+var K = 12;
 
 var mag = 2;
 
