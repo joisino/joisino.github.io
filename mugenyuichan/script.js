@@ -50,6 +50,17 @@ function ch(){
 	output[j] = sigmoid( output[j] );
 
 
+    var minc = 1.0;
+    var maxc = 0.0;
+    for( var i = 0; i < output_n; i++ ){
+	minc = Math.min( minc , output[i] );
+	maxc = Math.max( maxc , output[i] );
+    }
+    for( var i = 0; i < output_s*output_s*3; i++ ){
+	output[i] = ( output[i] - minc ) / ( maxc - minc );
+    }
+    
+
     for( var i = 0; i < output_s; i++ ){
 	for( var j = 0; j < output_s; j++ ){
 	    var base = i * output_s + j;
