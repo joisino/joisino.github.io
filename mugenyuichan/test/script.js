@@ -96,7 +96,7 @@ function ch(){
 	    for( var j = 0; j < 3; j++ )
 		if( cnt[i] > 0 ) ave[i*3+j] /= cnt[i];
 
-	console.log( ave[0] + " " + ave[1] + " " + ave[2] );
+	console.log( "%f, %f, %f" , ave[0] , ave[1] , ave[2] );
 
 	for( var i = 0; i < output_s*output_s; i++ ){
 	    var minv = 3.0;
@@ -104,7 +104,7 @@ function ch(){
 	    for( var j = 0; j < K; j++ ){
 		var res = 0.0;
 		for( var k = 0; k < 3; k++ )
-		    res += Math.pow( output[i*3+k] - ave[j*3+k] , 2 );
+		    res += Math.pow( output[i*3+k] - ave[j*3+k] , 2.0 );
 		if( res < minv ){
 		    minv = res;
 		    cl[i] = j;
