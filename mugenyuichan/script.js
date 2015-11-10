@@ -10,6 +10,8 @@ var input_n = 128;
 var output_s = 96;
 var output_n = output_s * output_s *3;
 
+var mag = 2;
+
 var imageData = ctx.getImageData( 0 , 0 , cvs.width , cvs.height );
 var pixels = imageData.data;
 
@@ -47,22 +49,19 @@ function ch(){
     for( var j = 0; j < output_n; j++ )
 	output[j] = sigmoid( output[j] );
 
-    var avr = 0.0;
-    for( var j = 0; j < output_n; j++ )
-	avr += output[j];
-    avr /= output_n;
-
-    for( var j = 0; j < output_n; j++ )
-	output[j] = Math.min( output[j] * 0.7 / avr , 1.0 );
-
 
     for( var i = 0; i < output_s; i++ ){
 	for( var j = 0; j < output_s; j++ ){
 	    var base = i * output_s + j;
-	    pixels[base*4+0] = Math.floor( output[base*3+0] * 256 );
-	    pixels[base*4+1] = Math.floor( output[base*3+1] * 256 );
-	    pixels[base*4+2] = Math.floor( output[base*3+2] * 256 );
-	    pixels[base*4+3] = 255;
+	    for( var k = 0; k < mag; k++ ){
+		for( var l = 0; l < mag; l++ ){
+		    var base2 = (i*mag+k) * output_s*mag + (j*mag+l);
+		    pixels[base2*4+0] = Math.floor( output[base*3+0] * 256 );
+		    pixels[base2*4+1] = Math.floor( output[base*3+1] * 256 );
+		    pixels[base2*4+2] = Math.floor( output[base*3+2] * 256 );
+		    pixels[base2*4+3] = 255;
+		}
+	    }
 	}
     }
 
