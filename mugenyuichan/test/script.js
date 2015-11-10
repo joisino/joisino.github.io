@@ -57,6 +57,7 @@ function ch(){
     for( var j = 0; j < output_n; j++ )
 	output[j] = Math.min( output[j] , 1.0 );
 
+    /*
     var minc = 1.0;
     var maxc = 0.0;
     for( var i = 0; i < output_n; i++ ){
@@ -66,6 +67,7 @@ function ch(){
     for( var i = 0; i < output_s*output_s*3; i++ ){
 	output[i] = ( output[i] - minc ) / ( maxc - minc );
     }
+    */
 
     var cl = new Array();
     for( var i = 0; i < output_s * output_s; i++ )
