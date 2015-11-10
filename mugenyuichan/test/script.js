@@ -116,7 +116,7 @@ function ch(){
 	    var base = i * output_s + j;
 	    for( var k = 0; k < 2; k++ ){
 		for( var l = 0; l < 2; l++ ){
-		    var base2 = (i*2+k) * output_s + (j*2+l);
+		    var base2 = (i*2+k) * output_s * 2 + (j*2+l);
 		    pixels[base2*4+0] = Math.floor( ave[cl[base]*3+0] * 256 );
 		    pixels[base2*4+1] = Math.floor( ave[cl[base]*3+1] * 256 );
 		    pixels[base2*4+2] = Math.floor( ave[cl[base]*3+2] * 256 );
