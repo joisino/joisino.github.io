@@ -82,7 +82,7 @@ function ch(){
     for( var loop_cnt = 0; loop_cnt < 100; loop_cnt++ ){
 	for( var i = 0; i < K; i++ ){
 	    for( var j = 0; j < 3; j++ )
-		ave[i*3+j] = 0;
+		ave[i*3+j] = 0.0;
 	    cnt[i] = 0;
 	}
 
