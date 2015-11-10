@@ -76,6 +76,9 @@ function ch(){
     var cl = new Array();
     for( var i = 0; i < output_s * output_s; i++ )
 	cl[i] = Math.floor( Math.random() * K );
+
+    for( var i = 0; i < 10; i++ )
+	console.log( "%d" , cl[i] );
     
     var ave = new Array();
     var cnt = new Array();
