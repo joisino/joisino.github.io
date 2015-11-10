@@ -108,7 +108,7 @@ function ch(){
 	    for( var j = 0; j < K; j++ ){
 		var res = 0.0;
 		for( var k = 0; k < 3; k++ )
-		    res += Math.pow( output[i*3+k] - ave[j*3+k] , 2.0 );
+		    res += ( output[i*3+k] - ave[j*3+k] ) * ( output[i*3+k] - ave[j*3+k] );
 		if( res < minv ){
 		    minv = res;
 		    cl[i] = j;
