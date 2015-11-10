@@ -12,6 +12,8 @@ var output_n = output_s * output_s *3;
 
 var K = 8;
 
+var mag = 2;
+
 var imageData = ctx.getImageData( 0 , 0 , cvs.width , cvs.height );
 var pixels = imageData.data;
 
@@ -110,9 +112,9 @@ function ch(){
     for( var i = 0; i < output_s; i++ ){
 	for( var j = 0; j < output_s; j++ ){
 	    var base = i * output_s + j;
-	    for( var k = 0; k < 2; k++ ){
-		for( var l = 0; l < 2; l++ ){
-		    var base2 = i * output_s + j;
+	    for( var k = 0; k < mag; k++ ){
+		for( var l = 0; l < mag; l++ ){
+		    var base2 = (i*mag+k) * output_s*mag + (j*mag+l);
 		    pixels[base2*4+0] = Math.floor( ave[cl[base]*3+0] * 256 );
 		    pixels[base2*4+1] = Math.floor( ave[cl[base]*3+1] * 256 );
 		    pixels[base2*4+2] = Math.floor( ave[cl[base]*3+2] * 256 );
