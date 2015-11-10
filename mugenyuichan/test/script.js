@@ -10,7 +10,7 @@ var input_n = 128;
 var output_s = 96;
 var output_n = output_s * output_s *3;
 
-var K = 16;
+var K = 12;
 
 var imageData = ctx.getImageData( 0 , 0 , cvs.width , cvs.height );
 var pixels = imageData.data;
@@ -61,8 +61,8 @@ function ch(){
     var maxc = new Array();
     for( var i = 0; i < output_s*output_s; i++ ){
 	for( var k = 0; k < 3; k++ ){
-	    minc[k] = Math.min( minc , output[i*3+k] );
-	    maxc[k] = Math.max( maxc , output[i*3+k] );
+	    minc[k] = Math.min( minc[k] , output[i*3+k] );
+	    maxc[k] = Math.max( maxc[k] , output[i*3+k] );
 	}
     }
     for( var i = 0; i < output_s*output_s; i++ ){
