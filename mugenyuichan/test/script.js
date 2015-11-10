@@ -99,8 +99,9 @@ function ch(){
 	    for( var j = 0; j < 3; j++ )
 		if( cnt[i] > 0 ) ave[i*3+j] /= cnt[i];
 
-	console.log( "%f, %f, %f" , ave[0] , ave[1] , ave[2] );
-	console.log( "%d, %d, %d" , cnt[0] , cnt[1] , cnt[2] );
+	for( var i = 0; i < K; i++ ){
+	    console.log( "%f, %f, %f %d" , ave[i*3] , ave[i*3+1] , ave[i*3+2] , cnt[i] );
+	}
 
 	for( var i = 0; i < output_s*output_s; i++ ){
 	    var minv = 3.0;
