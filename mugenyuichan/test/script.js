@@ -92,7 +92,7 @@ function ch(){
 	for( var i = 0; i < output_s*output_s; i++ ){
 	    for( var j = 0; j < 3; j++ )
 		ave[ cl[i]*3 + j ] += output[i*3+j];
-	    cnt[ cl[i]*3 ]++;
+	    cnt[ cl[i] ]++;
 	}
 
 	for( var i = 0; i < K; i++ )
