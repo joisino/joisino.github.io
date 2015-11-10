@@ -10,7 +10,7 @@ var input_n = 128;
 var output_s = 96;
 var output_n = output_s * output_s *3;
 
-var K = 12;
+var K = 16;
 
 var imageData = ctx.getImageData( 0 , 0 , cvs.width , cvs.height );
 var pixels = imageData.data;
@@ -57,20 +57,14 @@ function ch(){
     for( var j = 0; j < output_n; j++ )
 	output[j] = Math.min( output[j] * 0.7 / avr , 1.0 );
 
-    var minc = new Array(); minc[0] = minc[1] = minc[2] = 1.0;
-    var maxc = new Array(); maxc[0] = maxc[1] = maxc[2] = 0.0;
-    for( var i = 0; i < output_s*output_s; i++ ){
-	for( var k = 0; k < 3; k++ ){
-	    minc[k] = Math.min( minc[k] , output[i*3+k] );
-	    maxc[k] = Math.max( maxc[k] , output[i*3+k] );
-	}
+    var minc = 1.0;
+    var maxc = 0.0;
+    for( var i = 0; i < output_s*output_s*3; i++ ){
+	minc = Math.min( minc , output[i] );
+	maxc = Math.max( maxc , output[i] );
     }
-    console.log( "%f %f %f" , minc[0] , minc[1] , minc[2] );
-    console.log( "%f %f %f" , maxc[0] , maxc[1] , maxc[2] );    
-    for( var i = 0; i < output_s*output_s; i++ ){
-	for( var k = 0; k < 3; k++ ){
-	    output[i*3+k] = ( output[i*3+k] - minc[k] ) / ( maxc[k] - minc[k] );
-	}
+    for( var i = 0; i < output_s*output_s*3; i++ ){
+	output[i] = ( output[i] - minc ) / ( maxc - minc );
     }
 
     var cl = new Array();
