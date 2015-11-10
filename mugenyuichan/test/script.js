@@ -96,6 +96,8 @@ function ch(){
 	    for( var j = 0; j < 3; j++ )
 		if( cnt[i] > 0 ) ave[i*3+j] /= cnt[i];
 
+	console.log( ave[0] );
+
 	for( var i = 0; i < output_s*output_s; i++ ){
 	    var minv = 3.0;
 	    cl[i] = 0;
