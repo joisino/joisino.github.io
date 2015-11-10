@@ -115,15 +115,9 @@ function ch(){
 	    for( var k = 0; k < mag; k++ ){
 		for( var l = 0; l < mag; l++ ){
 		    var base2 = (i*mag+k) * output_s*mag + (j*mag+l);
-		    /*
 		    pixels[base2*4+0] = Math.floor( ave[cl[base]*3+0] * 256 );
 		    pixels[base2*4+1] = Math.floor( ave[cl[base]*3+1] * 256 );
 		    pixels[base2*4+2] = Math.floor( ave[cl[base]*3+2] * 256 );
-		    */
-		    pixels[base2*4+0] = Math.floor( output[base*3+0] * 256 );
-		    pixels[base2*4+1] = Math.floor( output[base*3+1] * 256 );
-		    pixels[base2*4+2] = Math.floor( output[base*3+2] * 256 );
-		    
 		    pixels[base2*4+3] = 255;
 		}
 	    }
