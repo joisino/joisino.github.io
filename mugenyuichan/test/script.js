@@ -102,19 +102,18 @@ function ch(){
 		    res += Math.pow( output[i*3+k] - ave[j*3+k] , 2 );
 		if( res < minv ){
 		    minv = res;
-		    ch[i] = j;
+		    cl[i] = j;
 		}
 	    }
 	}
     }
     
-    
     for( var i = 0; i < output_s; i++ ){
 	for( var j = 0; j < output_s; j++ ){
 	    var base = i * output_s + j;
-	    pixels[base*4+0] = Math.floor( output[base*3+0] * 256 );
-	    pixels[base*4+1] = Math.floor( output[base*3+1] * 256 );
-	    pixels[base*4+2] = Math.floor( output[base*3+2] * 256 );
+	    pixels[base*4+0] = Math.floor( ave[cl[base]*3+0] * 256 );
+	    pixels[base*4+1] = Math.floor( ave[cl[base]*3+1] * 256 );
+	    pixels[base*4+2] = Math.floor( ave[cl[base]*3+2] * 256 );
 	    pixels[base*4+3] = 255;
 	}
     }
