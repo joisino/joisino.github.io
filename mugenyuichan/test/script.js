@@ -58,13 +58,15 @@ function ch(){
 	output[j] = Math.min( output[j] * 0.7 / avr , 1.0 );
 
     var minc = new Array(); minc[0] = minc[1] = minc[2] = 1.0;
-    var maxc = new Array();
+    var maxc = new Array(); maxc[0] = maxc[1] = maxc[2] = 0.0;
     for( var i = 0; i < output_s*output_s; i++ ){
 	for( var k = 0; k < 3; k++ ){
 	    minc[k] = Math.min( minc[k] , output[i*3+k] );
 	    maxc[k] = Math.max( maxc[k] , output[i*3+k] );
 	}
     }
+    console.log( "%f %f %f" , minc[0] , minc[1] , minc[2] );
+    console.log( "%f %f %f" , maxc[0] , maxc[1] , maxc[2] );    
     for( var i = 0; i < output_s*output_s; i++ ){
 	for( var k = 0; k < 3; k++ ){
 	    output[i*3+k] = ( output[i*3+k] - minc[k] ) / ( maxc[k] - minc[k] );
