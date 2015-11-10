@@ -109,6 +109,7 @@ function ch(){
 		var res = 0.0;
 		for( var k = 0; k < 3; k++ )
 		    res += ( output[i*3+k] - ave[j*3+k] ) * ( output[i*3+k] - ave[j*3+k] );
+		if( i == 0 ) console.log( res );
 		if( res < minv ){
 		    minv = res;
 		    cl[i] = j;
