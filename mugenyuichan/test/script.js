@@ -10,7 +10,7 @@ var input_n = 128;
 var output_s = 96;
 var output_n = output_s * output_s *3;
 
-var K = 32;
+var K = 8;
 
 var imageData = ctx.getImageData( 0 , 0 , cvs.width , cvs.height );
 var pixels = imageData.data;
